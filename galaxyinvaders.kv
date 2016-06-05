@@ -1,0 +1,28 @@
+#:include debug.kv
+<GalaxyInvaders>:
+    id: _mainscreen
+    enemy_area: _enemy_area
+    player_area: _player_area
+    player: _player
+    fleet: _fleet
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            id: _enemy_area
+            size_hint: 1, 0.7
+            DebugLabel:
+                text: 'enemy area'
+            Fleet:
+                id: _fleet
+                size_hint: .5, .4
+                pos_hint: {'top': .9, 'center_x': 0.5}
+                DebugLabel:
+                    text: 'fleet'                    
+        FloatLayout:
+            id: _player_area
+            size_hint: 1, 0.3
+            Player:
+                id: _player
+                mainscreen: _mainscreen
+                player_area: _player_area
+                x: self.parent.width / 2
